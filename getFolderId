@@ -1,0 +1,9 @@
+function getFolderId() {
+  var folderList = DriveApp.getFolderById('1Zoi2ZBwFK8T_LDYQyjXKkRpWSx4yqAV_KryQlX2D69anmj_j-RiCPLleVs_0fw7y0uq-E6tN').getFolders();
+
+  while (folderList.hasNext()) {
+    var folder = folderList.next();
+    Logger.log(folder.getName() + ',' + folder.getId());
+  }
+  
+}
