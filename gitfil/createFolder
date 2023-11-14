@@ -1,0 +1,17 @@
+//フォルダーを作成
+function createFolder() {
+  const activeSpreadSheet = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = activeSpreadSheet.getSheetByName('');
+  const values = sheet.getDataRange().getValues();
+  value.shift();
+  const array = valuses;
+  for (let i in array) {
+    const assignment = {
+    folderId: array[i][0],
+    folderName: array[i][1]
+  }
+  const folder = DriveApp.getFolderById('');
+  folder.createFolder('');
+  Logger.log('Folder create: %s (%s)', folder.folderName);
+}
+}
