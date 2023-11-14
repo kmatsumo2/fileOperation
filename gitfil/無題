@@ -1,0 +1,10 @@
+function myFunction() {
+  const file = DriveApp.getFileById('1VcQ4xKYvYMR7z8pzLNCdcXTt4FRmtI24QL2zDPTNL6Y');
+  const destination = DriveApp.getFolderById('1xsMj0hxZLHz1IaZR5cGzELAAQWuo2gFD');
+  file.makeCopy("2学期課題採点表（09）_松本健_New",destination);
+  file.makeCopy("2学期課題採点表（17）_松本健_New",destination);
+  file.makeCopy("2学期課題採点表（24）_松本健_New",destination);
+  file.makeCopy("2学期課題採点表（31）_松本健_New",destination);
+  file.makeCopy("2学期課題採点表（35）_松本健_New",destination);
+  Logger.log('ファイルをコピーしました: %s (%s)', file.getName(), destination.getName());
+}
