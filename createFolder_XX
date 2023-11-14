@@ -1,0 +1,6 @@
+function createFolder() {
+  var folderXX = DriveApp.getFolderById("1Zoi2ZBwFK8T_LDYQyjXKkRpWSx4yqAV_KryQlX2D69anmj_j-RiCPLleVs_0fw7y0uq-E6tN");
+  folderXX.createFolder("DS-基礎課題_XX");
+  folderXX.createFolder("DS-活用課題_XX");
+  folderXX.createFolder("DS-発展課題_XX"); 
+}
