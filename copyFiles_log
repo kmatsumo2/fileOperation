@@ -1,0 +1,14 @@
+function copyFiles_log() {
+  var folder = DriveApp.getFolderById("1bcKyKbRsHwC4cwXo3Osjm-ykblAS_V9x");
+  var destination = DriveApp.getFolderById("1PAGH7L5rjMPHcJ_y1KzPnME4M6eOGlaO");
+  var fileList = folder.getFiles();
+  while (fileList.hasNext()) {
+    var file = fileList.next();
+  file.makeCopy(file.getName(), destination);
+  }
+  var copyList = destination.getFiles();
+  while (copyList.hasNext()) {
+    var copyFile = copyList.next();
+  Logger.log(copyFile.getName() + "," + copyFile.getId());
+  }
+}
