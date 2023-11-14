@@ -1,0 +1,9 @@
+function renameFiles() {
+  const folder = DriveApp.getFolderById('1W_GxEvTYDwyRRToB_eiVR2Wh8VYbrwlM');
+  const files = folder.getFilesByType(MimeType.GOOGLE_SHEETS);
+  while (files.hasNext()) {
+    const file = files.next();
+    const filename = file.getName().replace('undefined','');
+    file.setName(filename);
+  }
+}
