@@ -1,0 +1,59 @@
+function createForm() {
+// クラス名セット
+  const kurasu_name = '09';
+//activeなスプレッドシートのX枚目のシートを取得する。
+  let srcst = SpreadsheetApp.getActive().getSheets()[1];
+// サブクラス名セット
+  const subclass_name = srcst.getSheetName();
+//回答に使用するスプレッドシートのデータA列のみを取得する。
+  let values = srcst.getRange(1, 1, srcst.getLastRow() , 1).getValues();
+// Formを作成
+  const formCreate = FormApp.create('【' + kurasu_name + ' ' + subclass_name + '】 DS-活用課題の他者評価-W7');
+  formCreate.setDescription(kurasu_name + 'クラス' + ' ' + subclass_name + 'の他者評価フォームです。');
+  const formId = formCreate.getId();
+  const form = FormApp.openById(formId);
+//ヘッダー
+  const header = form.addSectionHeaderItem().setTitle('発表者を選択し、発表のタイトルと概要を記入しよう');
+  header.setHelpText('発表者はリストの選択肢から選んでください。評価相手がリストにない、自分の名前が見当たらない場合は講師に知らせてください。発表を聞いて、タイトルと概要を記入してください。')
+//発表者
+  const presenter = form.addListItem();
+  presenter.setTitle('発表者');
+  presenter.setHelpText('')
+  presenter.setChoiceValues(values);
+  presenter.setRequired(true);
+//タイトルと概要
+  const gaiyo = form.addParagraphTextItem().setTitle('発表のタイトルと概要');
+  gaiyo.setRequired(true);
+//ヘッダー2
+  const header2 = form.addSectionHeaderItem().setTitle('活用課題（発表）の他者評価をしよう！');
+  header2.setHelpText('5段階で、良い評価は「5」、悪い評価は「1」で回答しよう。')
+//項目1
+  const item1 = form.addScaleItem().setTitle('実施したデータサイエンスのミニプロジェクトの目的が過不足なく説明できているか');
+  item1.setRequired(true)
+//項目2
+  const item2 = form.addScaleItem().setTitle('どうやって分析して提案の根拠を得たかの方法が明確に説明できているか');
+  item2.setRequired(true);
+
+//項目3
+  const item3 = form.addScaleItem().setTitle('ミニプロジェクトで用いたデータを記述統計やグラフや表による可視化を交えてわかりやすく説明できているか');
+  item3.setRequired(true);
+
+//項目4
+  const item4 = form.addScaleItem().setTitle('データの記述統計やグラフや表による可視化で伝えたい内容を説明できているか');
+  item4.setRequired(true);
+
+//項目5
+  const item5 = form.addScaleItem().setTitle('実際の提案内容で伝えたい内容が伝わってくるか');
+  item5.setRequired(true);
+
+//項目6
+  const item6 = form.addParagraphTextItem().setTitle('良かったところをコメントしよう（任意項目）');
+  item6.setRequired(false);
+
+//学籍番号
+  const bango = form.addTextItem().setTitle('あなたの学籍番号');
+  bango.setRequired(true);
+//氏名
+  const name = form.addTextItem().setTitle('あなたの氏名');
+  name.setRequired(true);
+}
