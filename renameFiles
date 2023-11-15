@@ -1,9 +1,10 @@
+// ファイル名を置換して変更する
 function renameFiles() {
-  const folder = DriveApp.getFolderById('1W_GxEvTYDwyRRToB_eiVR2Wh8VYbrwlM');
+  const folder = DriveApp.getFolderById('1SVgp4YqED8UdlDkSw8ek4-Jo4AOjSKAx');
   const files = folder.getFilesByType(MimeType.GOOGLE_SHEETS);
   while (files.hasNext()) {
     const file = files.next();
-    const filename = file.getName().replace('undefined','');
+    const filename = file.getName().replace(' のコピー','');
     file.setName(filename);
   }
 }
