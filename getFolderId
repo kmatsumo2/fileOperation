@@ -1,9 +1,8 @@
+// 任意のフォルダー内のフォルダのIdを取得する
 function getFolderId() {
-  var folderList = DriveApp.getFolderById('1Zoi2ZBwFK8T_LDYQyjXKkRpWSx4yqAV_KryQlX2D69anmj_j-RiCPLleVs_0fw7y0uq-E6tN').getFolders();
-
+  const folderList = DriveApp.getFolderById("1NY1cKZ8aWqnCiagktT8nzpSNbBHhAkuG").getFolders();
   while (folderList.hasNext()) {
-    var folder = folderList.next();
-    Logger.log(folder.getName() + ',' + folder.getId());
+    const folder = folderList.next();
+    Logger.log("Checked IDs. %s (%s)", folder.getName(), folder.getId());
   }
-  
 }
