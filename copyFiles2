@@ -1,0 +1,13 @@
+// 任意のフォルダーから複数のフォルダーへフォルダー内のファイルをコピーする
+function copyFiles2() {
+  const folder = DriveApp.getFolderById("1lP1AZCJ-okqy_5-7toLD2NSDV_ZIzHFN");
+  const destination1 = DriveApp.getFolderById("1Nc69t4rR2_pS5SYrDtupbErnVOA2-eQA");
+  const destination2 = DriveApp.getFolderById("1vSfM9-ckc57faGunYywnH0RRR7R-zNee");
+  const fileList = folder.getFiles();
+  while (fileList.hasNext()) {
+    const file = fileList.next();
+    file.makeCopy(file.getName(), destination1);
+    file.makeCopy(file.getName(), destination2);
+    Logger.log("Copy finished : %s", file.getName());
+  }
+}
