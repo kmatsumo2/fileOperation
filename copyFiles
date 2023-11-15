@@ -1,19 +1,11 @@
+// 任意のフォルダー間でフォルダー内のファイルをコピーする
 function copyFiles() {
-  var folder = DriveApp.getFolderById("10auXvJuPb673M32L6lKhr6TASbb2fhDS");
-  var destination24 = DriveApp.getFolderById("1c8iqT2H7ClYdRaGGzEDkX2T8eloBhSqZ");
-  var destination09 = DriveApp.getFolderById("1XIClwe-u938-21cOkVjP9xv5Ugc181lc");
-  var destination31 = DriveApp.getFolderById("1D5aB0t9dV72nUnZE6vvy_ohnuTSHPHzu");
-  var destination35 = DriveApp.getFolderById("18mna9gRvbt0P_asvm6okivtdBqGPbdSb");
-  var destination17 = DriveApp.getFolderById("1TpAx-SH2cr3XScscaT-jWTpfc0iz2G8y");
-
-  var fileList = folder.getFiles();
+  const folder = DriveApp.getFolderById("送り元のフォルダーID");
+  const destination = DriveApp.getFolderById("送り先のフォルダーID");
+  const fileList = folder.getFiles();
   while (fileList.hasNext()) {
-    var file = fileList.next();
-  file.makeCopy(file.getName(), destination24);
-  file.makeCopy(file.getName(), destination09);
-  file.makeCopy(file.getName(), destination31);
-  file.makeCopy(file.getName(), destination35);
-  file.makeCopy(file.getName(), destination17);
+    const file = fileList.next();
+    file.makeCopy(file.getName(), destination);
+    Logger.log("Copy finished : %s", file.getName());
   }
-  Logger.log(file);
 }
