@@ -1,8 +1,0 @@
-//ファイルのIdを取得する
-function getFiles() {
-  var fileList = DriveApp.getFolderById("1v-URaMoNOfKH15_NOkuBAt_Fk2aZW1Y4").getFiles();
-  while (fileList.hasNext()) {
-    var file = fileList.next();
-    Logger.log(file.getName() + " " + file.getId());
-  }
-}
